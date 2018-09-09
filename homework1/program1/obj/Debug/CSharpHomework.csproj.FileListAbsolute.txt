@@ -1,7 +1,0 @@
-D:\学习资料\C#\code\CSharpHomework\CSharpHomework\bin\Debug\CSharpHomework.exe.config
-D:\学习资料\C#\code\CSharpHomework\CSharpHomework\bin\Debug\CSharpHomework.exe
-D:\学习资料\C#\code\CSharpHomework\CSharpHomework\bin\Debug\CSharpHomework.pdb
-D:\学习资料\C#\code\CSharpHomework\CSharpHomework\obj\Debug\CSharpHomework.csprojResolveAssemblyReference.cache
-D:\学习资料\C#\code\CSharpHomework\CSharpHomework\obj\Debug\CSharpHomework.csproj.CoreCompileInputs.cache
-D:\学习资料\C#\code\CSharpHomework\CSharpHomework\obj\Debug\CSharpHomework.exe
-D:\学习资料\C#\code\CSharpHomework\CSharpHomework\obj\Debug\CSharpHomework.pdb
