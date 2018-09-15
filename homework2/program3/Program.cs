@@ -10,7 +10,7 @@ namespace program3
     {
         static void Main(string[] args)
         {
-            int n = 10000;
+            int n = 100;
             int[] factors = PrimeSieve.GetTheSieve(n);
             System.Console.WriteLine(n+"以内的素数有：");
             foreach(int i in factors)

@@ -15,7 +15,14 @@ namespace program2
             {
                 array[i] = i;
             }
-            System.Console.Write(IntArrayFun.GetAver(array,array.Length));
+            System.Console.Write("数组的最大值为：");
+            System.Console.WriteLine(IntArrayFun.GetMax(array));
+            System.Console.Write("数组的最小值为：");
+            System.Console.WriteLine(IntArrayFun.GetMin(array));
+            System.Console.Write("数组的总和为：");
+            System.Console.WriteLine(IntArrayFun.GetSum(array));
+            System.Console.Write("数组的平均值为：");
+            System.Console.WriteLine(IntArrayFun.GetAver(array));
         }
     }
 
@@ -54,8 +61,12 @@ namespace program2
             }
             return sum;
         }
-        public static double GetAver(int[] array,int count=1)
+        public static double GetAver(int[] array,int count=0)
         {
+            if(count == 0)
+            {
+                count = array.Length;
+            }
             double average =(double) GetSum(array) / count;
             return average;
         }

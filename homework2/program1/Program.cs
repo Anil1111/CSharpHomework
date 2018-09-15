@@ -10,7 +10,9 @@ namespace homework2
     {
         static void Main(string[] args)
         {
-            Factors number = new Factors(100);
+            System.Console.WriteLine("输入一个整数：");
+            int i = Convert.ToInt32(System.Console.ReadLine());
+            Factors number = new Factors(i);
             number.FindTheFactors();
         }
     }
@@ -22,7 +24,7 @@ namespace homework2
         public Factors(int number)
         {
             this.number = number;
-            output = "number = ";
+            output = number + " = ";
         }
         public void FindTheFactors()
         {
