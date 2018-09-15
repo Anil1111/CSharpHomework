@@ -10,7 +10,9 @@ namespace program3
     {
         static void Main(string[] args)
         {
-            int n = 100;
+            
+            Console.WriteLine("查找范围：");
+            int n = Convert.ToInt32(Console.ReadLine());
             int[] factors = PrimeSieve.GetTheSieve(n);
             System.Console.WriteLine(n+"以内的素数有：");
             foreach(int i in factors)
@@ -26,19 +28,23 @@ namespace program3
         public static int[] GetTheSieve(int number)
         {
             int[] factors = new int[number+1];
-            int count = 1;
+            int count = number-1;
             factors[0] = -1;
-            factors[1] = 1;
-            for(int i = 2; i < factors.Length;i++)
+            factors[1] = -1;
+            for(int i = 2; i <= (int)Math.Sqrt(factors.Length-1); i++)
             {
-                if(factors[i]!=-1)
+                if(factors[i]==-1)
                 {
-                    count++;
-                    factors[i] = i;
+                    continue;
                 }
                 for(int j = i; i * j < factors.Length; j++)
                 {
-                    factors[i * j] = -1;
+                    if(factors[i*j]==0)
+                    {
+                        factors[i * j] = -1;
+                        count--;
+                    }
+                    
                 }
             }
             int[] results = new int[count];
@@ -47,7 +53,7 @@ namespace program3
             {
                 if (factors[i] != -1)
                 {
-                    results[count] = factors[i];
+                    results[count] = i;
                     count++;
                 }
             }
