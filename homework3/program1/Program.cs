@@ -29,7 +29,10 @@ namespace program1
         {
             return area;
         }
-        abstract public void Show();
+        virtual public void Show()
+        {
+            Console.WriteLine("面积为：" + area);
+        }
         abstract protected void SetArea();
     }
 
@@ -99,7 +102,7 @@ namespace program1
                 Console.Write(i + " ");
             }
             Console.WriteLine();
-            Console.WriteLine("面积为：" + area);
+            base.Show();
         }
     }
 
@@ -127,7 +130,7 @@ namespace program1
         {
             Console.Write("该长方形边长分别为： ");
             Console.WriteLine(a + "  " + b);
-            Console.WriteLine("面积为：" + area);
+            base.Show();
         }
     }
 
@@ -148,18 +151,18 @@ namespace program1
         {
             Console.Write("该圆形半径为： ");
             Console.WriteLine(r);
-            Console.WriteLine("面积为：" + area);
+            base.Show();
         }
     }
 
     class Square:Rectangle
     {
         public Square(double[] edges):base(edges[0]){ }
-        new public void Show()
+        override public void Show()
         {
             Console.Write("该正方形边长为： ");
             Console.WriteLine(a);
-            Console.WriteLine("面积为：" + area);
+            Console.WriteLine("面积为： " + area);
         }
     }
 }
