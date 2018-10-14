@@ -62,7 +62,7 @@
             this.ratioText.Size = new System.Drawing.Size(100, 25);
             this.ratioText.TabIndex = 1;
             this.ratioText.Text = this.ratio.ToString();
-            this.ratioText.TextChanged += new System.EventHandler(this.ratioText_TextChanged);
+            //this.ratioText.TextChanged += new System.EventHandler(this.ratioText_TextChanged);
             // 
             // ratioLabel
             // 
@@ -93,7 +93,7 @@
             this.th1Text.Text = th1.ToString();
             this.th1Text.Size = new System.Drawing.Size(100, 25);
             this.th1Text.TabIndex = 4;
-            this.th1Text.TextChanged += new System.EventHandler(this.th1Text_TextChanged);
+            //this.th1Text.TextChanged += new System.EventHandler(this.th1Text_TextChanged);
             // 
             // th2Text
             // 
@@ -103,7 +103,7 @@
             this.th2Text.Text = th2.ToString();
             this.th2Text.Size = new System.Drawing.Size(100, 25);
             this.th2Text.TabIndex = 6;
-            this.th2Text.TextChanged += new System.EventHandler(this.th2Text_TextChanged);
+            //this.th2Text.TextChanged += new System.EventHandler(this.th2Text_TextChanged);
             // 
             // th2Label
             // 
@@ -114,7 +114,7 @@
             this.th2Label.Size = new System.Drawing.Size(90, 15);
             this.th2Label.TabIndex = 5;
             this.th2Label.Text = "分支2角度：";
-            this.th2Label.Click += new System.EventHandler(this.label1_Click);
+           // this.th2Label.Click += new System.EventHandler(this.label1_Click);
             // 
             // per2Text
             // 
@@ -124,7 +124,7 @@
             this.per2Text.Text = per2.ToString();
             this.per2Text.Size = new System.Drawing.Size(100, 25);
             this.per2Text.TabIndex = 8;
-            this.per2Text.TextChanged += new System.EventHandler(this.per2Text_TextChanged);
+            //this.per2Text.TextChanged += new System.EventHandler(this.per2Text_TextChanged);
             // 
             // per2Label
             // 
@@ -135,7 +135,7 @@
             this.per2Label.Size = new System.Drawing.Size(90, 15);
             this.per2Label.TabIndex = 7;
             this.per2Label.Text = "分支2衰减：";
-            this.per2Label.Click += new System.EventHandler(this.label1_Click_1);
+            //this.per2Label.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // per1Text
             // 
@@ -145,7 +145,7 @@
             this.per1Text.Text = per1.ToString();
             this.per1Text.Size = new System.Drawing.Size(100, 25);
             this.per1Text.TabIndex = 10;
-            this.per1Text.TextChanged += new System.EventHandler(this.per1Text_TextChanged);
+            //this.per1Text.TextChanged += new System.EventHandler(this.per1Text_TextChanged);
             // 
             // per1Label
             // 

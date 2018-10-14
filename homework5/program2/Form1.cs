@@ -26,7 +26,12 @@ namespace program2
 
         private void StartDrawing(object sender, EventArgs e)
         {
-            if(graphics==null)
+            ratio = Convert.ToDouble(ratioText.Text);
+            th1 = Convert.ToDouble(th1Text.Text);
+            th2 = Convert.ToDouble(th2Text.Text);
+            per1 = Convert.ToDouble(per1Text.Text);
+            per2 = Convert.ToDouble(per2Text.Text);
+            if (graphics==null)
             {
                 graphics = this.CreateGraphics();
             }
@@ -52,41 +57,32 @@ namespace program2
             graphics.DrawLine(Pens.Blue, (int)x0, (int)y0, (int)x1, (int)y1);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
       
 
-        private void ratioText_TextChanged(object sender, EventArgs e)
-        {
-            ratio = Convert.ToDouble(ratioText.Text);
-        }
+        //private void ratioText_TextChanged(object sender, EventArgs e)
+        //{
+        //    ratio = Convert.ToDouble(ratioText.Text);
+        //}
 
-        private void th1Text_TextChanged(object sender, EventArgs e)
-        {
-            th1 = Convert.ToDouble(th1Text.Text);
-        }
+        //private void th1Text_TextChanged(object sender, EventArgs e)
+        //{
+        //    th1 = Convert.ToDouble(th1Text.Text);
+        //}
 
-        private void th2Text_TextChanged(object sender, EventArgs e)
-        {
-            th2 = Convert.ToDouble(th2Text.Text);
-        }
+        //private void th2Text_TextChanged(object sender, EventArgs e)
+        //{
+        //    th2 = Convert.ToDouble(th2Text.Text);
+        //}
 
-        private void per1Text_TextChanged(object sender, EventArgs e)
-        {
-            per1 = Convert.ToDouble(per1Text.Text);
-        }
+        //private void per1Text_TextChanged(object sender, EventArgs e)
+        //{
+        //    per1 = Convert.ToDouble(per1Text.Text);
+        //}
 
-        private void per2Text_TextChanged(object sender, EventArgs e)
-        {
-            per2 = Convert.ToDouble(per2Text.Text);
-        }
+        //private void per2Text_TextChanged(object sender, EventArgs e)
+        //{
+        //    per2 = Convert.ToDouble(per2Text.Text);
+        //}
     }
 }
