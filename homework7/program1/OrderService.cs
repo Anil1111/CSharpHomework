@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Xml.Serialization;
-namespace program1
-{
-    [Serializable]
+
+[Serializable]
     public class OrderService
     {
         private List<Order> orderList;
-        public List<Order> OrderList { get => orderList; }
+        public List<Order> OrderList { get=>orderList; }
 
         public OrderService()
         {
@@ -118,7 +117,7 @@ namespace program1
             return list;
         }
 
-        public FileInfo Export(String fileName = "s.xml")
+        public FileInfo Export(String fileName="s.xml")
         {
             XmlSerializer xmlser = new XmlSerializer(typeof(OrderService));
             FileStream fs = new FileStream(fileName, FileMode.Create);
@@ -143,5 +142,3 @@ namespace program1
             return service;
         }
     }
-
-}

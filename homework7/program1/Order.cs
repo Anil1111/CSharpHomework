@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace program1
+[Serializable]
+public class Order
 {
-    [Serializable]
-    public class Order
-    {
         private List<OrderDetails> data;
         private String client;
         private String id;
@@ -25,7 +23,7 @@ namespace program1
             id = dateTime.ToString();
             this.client = client;
             this.name = name;
-            data = new List<OrderDetails>();
+            data = new List< OrderDetails>();
         }
 
         public String Name { get => name; set => name = value; }
@@ -47,13 +45,13 @@ namespace program1
                 .Where(d => d.Name == name)
                 .Select(d => d)
                 .FirstOrDefault();
-            if (select == null)
+            if(select == null)
             {
                 data.Add(new OrderDetails(price, count, name));
             }
             else
             {
-                if (select.Price != price)
+                if(select.Price!=price)
                 {
                     return;
                 }
@@ -63,9 +61,9 @@ namespace program1
 
         public void DeleteDetail(String name)
         {
-            foreach (OrderDetails detail in data)
+            foreach(OrderDetails detail in data)
             {
-                if (detail.Name == name)
+                if(detail.Name == name)
                 {
                     data.Remove(detail);
                 }
@@ -75,7 +73,7 @@ namespace program1
         public void ChangeCount(String name, double count)
         {
             var select = data.Where(s => s.Name == name).Select(s => s).FirstOrDefault();
-            if (select == null)
+            if (select==null)
             {
                 throw new CanNotFindEntry($"不存在名为{name}的条目。");
             }
@@ -85,7 +83,7 @@ namespace program1
         public void ChangePrice(String name, double price)
         {
             var select = data.Where(s => s.Name == name).Select(s => s).FirstOrDefault();
-            if (select == null)
+            if (select==null)
             {
                 throw new CanNotFindEntry($"不存在名为{name}的条目。");
             }
@@ -99,6 +97,4 @@ namespace program1
                 Console.WriteLine($"名称：{item.Name}, 价格：{item.Price}， 数目：{item.Count}");
             }
         }
-    }
-
 }

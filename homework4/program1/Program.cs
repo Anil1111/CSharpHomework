@@ -12,7 +12,7 @@ namespace program1
         {
             Timer timer = new Timer("测试成功");
             timer.Timing += TimeOut;
-            timer.DoTiming(0,0,20);
+            timer.DoTiming(0,0,5);
         }
 
 
@@ -33,7 +33,7 @@ namespace program1
 
         public String Duration { get => duration.ToString(); }
 
-        public event AlarmTimer Timing;
+        public AlarmTimer Timing;
 
         public Timer(String message="")
         {
