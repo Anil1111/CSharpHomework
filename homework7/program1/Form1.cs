@@ -20,7 +20,7 @@ namespace OrderWinForm
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex==3)
+            if(e.ColumnIndex==4)
             {
                 int row = e.RowIndex;
 
@@ -28,13 +28,13 @@ namespace OrderWinForm
                 string client = (string)((DataGridView)sender).Rows[row].Cells[1].Value;
                 string id = (string)((DataGridView)sender).Rows[row].Cells[2].Value;
                 ((DataGridView)sender).Rows.RemoveAt(row);
-                //Order order = service.OrderList
-                //    .Where(s =>
-                //    s.Client == client &&
-                //    s.Id == id &&
-                //    s.Name == name)
-                //    .FirstOrDefault();
-                //service.OrderList.Remove(order);
+                Order order = service.OrderList
+                    .Where(s =>
+                    s.Client == client &&
+                    s.Id == id &&
+                    s.Name == name)
+                    .FirstOrDefault();
+                service.OrderList.Remove(order);
             }
         }
 
@@ -48,14 +48,14 @@ namespace OrderWinForm
                 double count = (double)((DataGridView)sender).Rows[row].Cells[1].Value;
                 double price = (double)((DataGridView)sender).Rows[row].Cells[2].Value;
                 ((DataGridView)sender).Rows.RemoveAt(row);
-                //List<OrderDetails> details = (List<OrderDetails>)((DataGridView)sender).DataSource;
-                //OrderDetails detail = details
-                //    .Where(s => 
-                //    count == s.Count && 
-                //    name == s.Name && 
-                //    price == s.Price)
-                //    .FirstOrDefault();
-                //details.Remove(detail);
+                List<OrderDetails> details = (List<OrderDetails>)((DataGridView)sender).DataSource;
+                OrderDetails detail = details
+                    .Where(s =>
+                    count == s.Count &&
+                    name == s.Name &&
+                    price == s.Price)
+                    .FirstOrDefault();
+                details.Remove(detail);
             }
         }
 
@@ -87,6 +87,11 @@ namespace OrderWinForm
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             service.Export("s.xml");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            service.ExportHtml("s.html");
         }
     }
 }
