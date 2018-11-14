@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace program1
 {
@@ -11,27 +12,82 @@ namespace program1
         private String client;
         private String id;
         private String name;
+        private String tel;
+        private static int UID = 0;
         public Order()
         {
             data = new List<OrderDetails>();
             client = "";
             DateTime dateTime = DateTime.Now;
-            id = dateTime.ToString();
+            SetId();
             name = "";
+            if(UID<999)
+            {
+                UID++;
+            }
+            else
+            {
+                UID = 0;
+            }
         }
-        public Order(String client, String name = "")
+        public Order(String client, String name = "", String tel="")
         {
-            DateTime dateTime = DateTime.Now;
-            id = dateTime.ToString();
+           
             this.client = client;
             this.name = name;
+            this.tel = CheckTheTel(tel);
+            SetId();
             data = new List<OrderDetails>();
+            if (UID < 999)
+            {
+                UID++;
+            }
+            else
+            {
+                UID = 0;
+            }
         }
 
+        private void SetId()
+        {
+            DateTime dateTime = DateTime.Now;
+            id = dateTime.ToString("yyyyMMdd");
+            if (UID < 10)
+            {
+                id = id + "00" + UID.ToString();
+            }
+            else if (UID < 100)
+            {
+                id = id + "0" + UID.ToString();
+            }
+            else
+            {
+                id = id + UID.ToString();
+            }
+        }
+        private String CheckTheTel(String tel)
+        {
+
+            if (tel == "")
+            {
+                return "无联系方式";
+            }
+            bool ok = Regex.IsMatch(tel, "^(\\+?)[0-9]{0,3}[0-9]{11}$");
+            if(ok)
+            { 
+                Console.WriteLine(tel);
+                return tel;
+            }
+            else
+            {
+                return "格式错误";
+            }
+        }
         public String Name { get => name; set => name = value; }
         public String Client { get => client; set => client = value; }
         public String Id { get => id; set => id = id; }
         public List<OrderDetails> Data { get => data; }
+        public string Tel { get => tel; set => tel = CheckTheTel(value); }
 
         public Double GetSum()
         {

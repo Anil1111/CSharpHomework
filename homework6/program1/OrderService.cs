@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Xml.Serialization;
+using System.Xml;
+using System.Xml.XPath;
+using System.Xml.Xsl;
+
 namespace program1
 {
     [Serializable]
@@ -141,6 +145,30 @@ namespace program1
             OrderService service = (OrderService)xmlser.Deserialize(fs);
             fs.Close();
             return service;
+        }
+
+        public FileInfo ExportHtml(String url)
+        {
+            try{
+                this.Export();
+                XmlDocument doc = new XmlDocument();
+                doc.Load("s.xml");
+                XPathNavigator nav = doc.CreateNavigator();
+                nav.MoveToRoot();
+                XslCompiledTransform xt = new XslCompiledTransform();
+                xt.Load("s.xslt");
+                XmlTextWriter writer = new XmlTextWriter(new FileStream(url, FileMode.Create), System.Text.Encoding.UTF8);
+                xt.Transform(nav, null, writer);
+            }
+            catch (XmlException e)
+            {
+                Console.WriteLine("Exception caught:" + e.ToString());
+            }
+            catch (XsltException e)
+            {
+                Console.WriteLine("Exception caught:" + e.ToString());
+            }
+            return new FileInfo(url);
         }
     }
 
