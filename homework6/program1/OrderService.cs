@@ -122,7 +122,7 @@ namespace program1
             return list;
         }
 
-        public FileInfo Export(String fileName = "s.xml")
+        public FileInfo Export(String fileName = "../../s.xml")
         {
             XmlSerializer xmlser = new XmlSerializer(typeof(OrderService));
             FileStream fs = new FileStream(fileName, FileMode.Create);
@@ -152,11 +152,11 @@ namespace program1
             try{
                 this.Export();
                 XmlDocument doc = new XmlDocument();
-                doc.Load("s.xml");
+                doc.Load("../../s.xml");
                 XPathNavigator nav = doc.CreateNavigator();
                 nav.MoveToRoot();
                 XslCompiledTransform xt = new XslCompiledTransform();
-                xt.Load("s.xslt");
+                xt.Load("../../s.xslt");
                 XmlTextWriter writer = new XmlTextWriter(new FileStream(url, FileMode.Create), System.Text.Encoding.UTF8);
                 xt.Transform(nav, null, writer);
             }
